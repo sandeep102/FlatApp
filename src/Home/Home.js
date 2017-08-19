@@ -58,7 +58,7 @@ class Home extends React.Component {
 
     render(){
         return(
-            <ScrollView>
+            <ScrollView style={{backgroundColor:'#fff'}}>
                 <ImageSlider
                     height={Dimensions.get('window').height/3+50}
                     images={[
@@ -156,16 +156,6 @@ class Home extends React.Component {
                         </View>
                     </View>
                 </TouchableOpacity>
-
-
-
-
-
-
-
-
-
-
             </ScrollView>
         )
     }
