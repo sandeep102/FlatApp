@@ -12,6 +12,8 @@ import ChannelGrid from './src/Channels/ChannelGrid'
 import Calender from './src/Calender/Calender'
 import Widget from './src/Widgets/Widgets'
 import Comments from './src/Comments'
+import Timeline from './src/Timeline'
+
 
 import {DrawerNavigator,StackNavigator} from 'react-navigation'
 
@@ -22,6 +24,7 @@ const App = DrawerNavigator({
     CHANNEL:{screen:ChannelGrid},
     PROFILE: {screen: Profile},
     COMMENTS:{screen: Comments},
+    TIMELINE:{screen: Timeline},
     WIDGETS:{screen: Widget},
     OVERVIEW: {screen: OverView},
     FEEDBACK:{screen: Feedback},
