@@ -18,6 +18,7 @@ import Timeline from './src/Timeline'
 import {DrawerNavigator,StackNavigator} from 'react-navigation'
 
 const App = DrawerNavigator({
+    LOGIN: {screen: Login},
     HOME: {screen: Home },
     SETTINGS: {screen: Settings},
     CALENDER:{screen: Calender},
@@ -28,8 +29,10 @@ const App = DrawerNavigator({
     WIDGETS:{screen: Widget},
     OVERVIEW: {screen: OverView},
     FEEDBACK:{screen: Feedback},
-    LOGIN: {screen: Login},
 
+
+},{
+    initialRouteName: 'HOME',
 })
 
 

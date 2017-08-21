@@ -11,13 +11,6 @@ const styles = {
         fontSize:16,
         fontWeight: 'bold',
     },
-    topTab:{
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 60,
-        backgroundColor: '#01cca1',
-    },
     buttonStyle:{
         flex:1,
         borderRadius: 50,
@@ -52,9 +45,7 @@ const styles = {
         height:12,
         marginRight:5
     },
-    container: {
-        marginTop: 30,
-    },
+
     icon: {
         width: 300,
         height: 300,
