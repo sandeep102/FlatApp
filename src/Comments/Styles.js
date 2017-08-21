@@ -52,6 +52,15 @@ const styles = {
         height:12,
         marginRight:5
     },
+    container: {
+        marginTop: 30,
+    },
+    icon: {
+        width: 300,
+        height: 300,
+        alignSelf: 'center',
+    },
+
 }
 
 export default styles

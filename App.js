@@ -28,7 +28,6 @@ const App = DrawerNavigator({
     WIDGETS:{screen: Widget},
     OVERVIEW: {screen: OverView},
     FEEDBACK:{screen: Feedback},
-
     LOGIN: {screen: Login},
 
 })

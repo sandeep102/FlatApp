@@ -9,35 +9,13 @@ import {View,
 import renderIf from './renderif'
 import Hr from 'react-native-hr'
 import styles from './Styles'
+import ScrollableTabView, { DefaultTabBar, } from 'react-native-scrollable-tab-view';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 const WIDTH = Dimensions.get('window').width
 
 class Comments extends React.Component {
-    static navigationOptions = ({navigation}) =>{
-        return{
-            title: <Image
-                source={require('../images/logo.png')}
-                style={{height: 26,width: 26,tintColor: '#fff'}}
-            />,
-            headerLeft:
-                <TouchableOpacity onPress={()=> navigation.navigate('HOME')}>
-                    <Image
-                        source={require('../icon/leftArrow.png')}
-                        style={{height: 26,width: 26,marginLeft:10,tintColor: '#fff'}}
-                    />
-                </TouchableOpacity>,
-            headerRight:
-                <TouchableOpacity onPress={()=> navigation.navigate('DrawerOpen')}>
-                    <Image
-                        source={require('../icon/nav.png')}
-                        style={{height: 32,width: 35,marginRight:10,tintColor: '#fff'}}
-                    />
-                </TouchableOpacity>,
-            headerStyle: {
-                backgroundColor: '#00c497'
-            }
-        }
-    }
 
     constructor(props){
         super(props);
@@ -68,6 +46,7 @@ class Comments extends React.Component {
     render(){
         return(
             <View style={{flex:1}}>
+
                 <View style={styles.header}>
                     <Text style={styles.headerText}>23 COMMENTS</Text>
                 </View>
@@ -88,6 +67,30 @@ class Comments extends React.Component {
                         <Text style={{textAlign: 'center',color: '#fff'}}>Oldest</Text>
                     </TouchableOpacity>
                 </View>
+
+
+
+                <ScrollableTabView
+                    style={styles.container}
+                    renderTabBar={()=><DefaultTabBar backgroundColor='rgba(255, 255, 255, 0.7)' />}
+                    tabBarPosition='overlayTop'
+                >
+                    <ScrollView tabLabel='iOS'>
+                        <Icon name='logo-apple' color='black' size={300} style={styles.icon} />
+                        <Icon name='ios-phone-portrait' color='black' size={300} style={styles.icon} />
+                        <Icon name='logo-apple' color='#DBDDDE' size={300} style={styles.icon} />
+                        <Icon name='ios-phone-portrait' color='#DBDDDE' size={300} style={styles.icon} />
+                    </ScrollView>
+                    <ScrollView tabLabel='Android'>
+                        <Icon name='logo-android' color='#A4C639' size={300} style={styles.icon} />
+                        <Icon name='logo-android' color='black' size={300} style={styles.icon} />
+                        <Icon name='logo-android' color='brown' size={300} style={styles.icon} />
+                    </ScrollView>
+                </ScrollableTabView>
+
+
+
+
                 <View style={styles.content}>
                     {renderIf(this.state.status)(
 
@@ -260,6 +263,7 @@ class Comments extends React.Component {
                                 </View>
                             </View>
                             <Hr lineColor="#ccc" />
+
                         </ScrollView>
 
                     )}
