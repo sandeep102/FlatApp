@@ -17,7 +17,7 @@ export default class DetailNews extends React.Component{
                 style={{height: 26,width: 26,tintColor: '#fff'}}
             />,
             headerLeft:
-                <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
+                <TouchableOpacity onPress={()=> navigation.goBack()}>
                     <Image
                         source={require('../icon/leftArrow.png')}
                         style={{height: 25,width: 25,marginLeft:10,tintColor: '#fff'}}

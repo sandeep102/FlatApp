@@ -36,54 +36,102 @@ class Timeline extends React.Component{
                     <Text style={styles.headerText}>MONDAY</Text>
                     <Text style={{fontSize:12,color:'#fff',margin:5}}>Aug 6, 2016</Text>
                 </View>
-                <ScrollView>
-                    <View style={styles.container}>
-                        <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+                <ScrollView style={styles.container}>
+                    <View style={{borderLeftWidth:1,borderLeftColor: '#ccc',marginLeft:10,}}>
+                        <Text style={{color:'#fff'}}>hiden text</Text>
+                    </View>
+                        <View style={{flexDirection:'row',justifyContent:'flex-start',}}>
                             <Image
                                 source={require('../icon/bookmark.png')}
-                                style={{tintColor: '#4d4d4d',width:15,height:15,marginLeft:5,}} />
-                            <View style={{flexDirection:'row',justifyContent:'flex-end'}}>
+                                style={{tintColor: '#4d4d4d',width:22,height:18,}} />
+                            <View style={{flex:1,flexDirection:'row',justifyContent:'space-between',}}>
+                                <Text style={styles.username}>BOOKMARKED</Text>
+                                <View style={{flexDirection:'row',justifyContent:'flex-end',marginRight:10}}>
+                                    <Image
+                                        source={require('../icon/clock.png')}
+                                        style={{tintColor: '#4d4d4d',width:12,height:12,marginRight:5,}} />
+                                    <Text style={{fontSize: 12}}>11:00 AM</Text>
 
-                                <Text style={{fontWeight:'bold',fontSize: 12,}}>Akshay kumar</Text>
-                                <Image
-                                    source={require('../icon/clock.png')}
-                                    style={{tintColor: '#4d4d4d',width:12,height:12,marginRight:5,marginLeft:20}} />
-                                <Text style={{fontSize: 12}}>May 24, 11 AM</Text>
-                                <Image
-                                    source={require('../icon/heart.png')}
-                                    style={{tintColor: '#4d4d4d',width:12,height:12,marginRight:5,marginLeft:20}} />
-                                <Text style={{fontSize: 12}}>12</Text>
+                                </View>
                             </View>
 
                         </View>
                         <View style={styles.noteView}>
-                            <Text style={styles.note}>Lorem Ipsum is simply dummy text of the printing and typesetting ind Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                            <Text style={styles.note}>Its simply dummy text of the printing and typesetting industry.</Text>
                         </View>
+                    <View style={{flexDirection:'row',justifyContent:'flex-start',}}>
                         <Image
-                            source={require('../icon/clock.png')}
-                            style={{tintColor: '#4d4d4d',width:12,height:12,marginLeft:5,}} />
-                        <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-                            <View style={{flexDirection:'row',justifyContent:'flex-end'}}>
-                                <Text style={{fontWeight:'bold',fontSize: 12,marginLeft:20}}>Akshay kumar</Text>
+                            source={require('../icon/comments.png')}
+                            style={{tintColor: '#4d4d4d',width:22,height:20,}} />
+                        <View style={{flex:1,flexDirection:'row',justifyContent:'space-between',}}>
+                            <Text style={styles.username}>COMMENTS</Text>
+                            <View style={{flexDirection:'row',justifyContent:'flex-end',marginRight:10}}>
                                 <Image
                                     source={require('../icon/clock.png')}
-                                    style={{tintColor: '#4d4d4d',width:12,height:12,marginRight:5,marginLeft:20}} />
-                                <Text style={{fontSize: 12}}>May 24, 11 AM</Text>
-                                <Image
-                                    source={require('../icon/heart.png')}
-                                    style={{tintColor: '#4d4d4d',width:12,height:12,marginRight:5,marginLeft:20}} />
-                                <Text style={{fontSize: 12}}>12</Text>
-                            </View>
+                                    style={{tintColor: '#4d4d4d',width:12,height:12,marginRight:5,}} />
+                                <Text style={{fontSize: 12}}>11:00 AM</Text>
 
-                        </View>
-                        <View style={styles.noteView}>
-                            <Text style={styles.note}>Lorem Ipsum is simply dummy text of the printing and typesetting ind Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-                        </View>
-                        <View style={styles.noteView}>
-                            <Text style={styles.note}>Lorem Ipsum is simply dummy text of the printing and typesetting ind Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                            </View>
                         </View>
 
                     </View>
+                        <View style={styles.noteView}>
+                            <Text style={styles.note}>printing and typesetting ind Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                        </View>
+                        <View style={{flexDirection:'row',justifyContent:'flex-start'}}>
+                            <Image
+                                source={require('../icon/deliverd.jpg')}
+                                style={{width:20,height:15,}} />
+                            <View style={{flex:1,flexDirection:'row',justifyContent:'space-between'}}>
+                                <Text style={styles.username}>FOLLOWED</Text>
+                                <View style={{flexDirection:'row',justifyContent:'flex-end',marginRight:10}}>
+                                    <Image
+                                        source={require('../icon/clock.png')}
+                                        style={{tintColor: '#4d4d4d',width:12,height:12,marginRight:5,}} />
+                                    <Text style={{fontSize: 12}}>11:00 AM</Text>
+
+                                </View>
+                            </View>
+                        </View>
+                        <View style={styles.noteView}>
+                            <Text style={styles.note}>Ind Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                        </View>
+                        <View style={{flexDirection:'row',justifyContent:'flex-start'}}>
+                            <Image
+                                source={require('../icon/share.png')}
+                                style={{tintColor: '#4d4d4d',width:18,height:18,}} />
+                            <View style={{flex:1,flexDirection:'row',justifyContent:'space-between'}}>
+                                <Text style={styles.username}>SAVED</Text>
+                                <View style={{flexDirection:'row',justifyContent:'flex-end',marginRight:10}}>
+                                    <Image
+                                        source={require('../icon/clock.png')}
+                                        style={{tintColor: '#4d4d4d',width:12,height:12,marginRight:5,}} />
+                                    <Text style={{fontSize: 12}}>9:45 AM</Text>
+
+                                </View>
+                            </View>
+                        </View>
+                        <View style={styles.noteView}>
+                            <Text style={styles.note}>Lorem Ipsum is simply dummy text of the printing and typesetting ind Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                        </View>
+                        <View style={{flexDirection:'row',justifyContent:'flex-start'}}>
+                            <Image
+                                source={require('../icon/archive.png')}
+                                style={{tintColor: '#4d4d4d',width:18,height:15,}} />
+                            <View style={{flex:1,flexDirection:'row',justifyContent:'space-between'}}>
+                                <Text style={styles.username}>ARCHIVED</Text>
+                                <View style={{flexDirection:'row',justifyContent:'flex-end',marginRight:10}}>
+                                    <Image
+                                        source={require('../icon/clock.png')}
+                                        style={{tintColor: '#4d4d4d',width:12,height:12,marginRight:5,}} />
+                                    <Text style={{fontSize: 12}}>9:45 AM</Text>
+
+                                </View>
+                            </View>
+                        </View>
+                        <View style={styles.noteView}>
+                            <Text style={styles.note}>Lorem Ipsum is simply dummy text of the printing and typesetting ind Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                        </View>
                 </ScrollView>
             </View>
         )
@@ -111,12 +159,19 @@ const styles = {
         borderLeftColor: '#ccc',
         margin:10,
         marginTop:0,
-        paddingLeft:15
+        paddingLeft:20,
+        paddingTop:10,
+        paddingBottom:15
     },
     note:{
         fontWeight:'bold',
         fontSize: 12,
-
+    },
+    username:{
+        fontWeight:'bold',
+        fontSize: 12,
+        color:'#01cca1',
+        marginLeft:10
     },
 }
 

@@ -8,6 +8,7 @@ import {View,
     Dimensions} from 'react-native'
 import renderIf from './renderif'
 import Hr from 'react-native-hr'
+import styles from './Styles'
 
 const WIDTH = Dimensions.get('window').width
 

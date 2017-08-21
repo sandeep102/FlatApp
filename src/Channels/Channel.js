@@ -7,7 +7,7 @@ import {View,
     Dimensions} from 'react-native'
 import {Button} from 'react-native-elements'
 import Hr from 'react-native-hr'
-import {StackNavigator} from 'react-navigation'
+import {StackNavigator,NavigationActions} from 'react-navigation'
 
 const HEIGHT = Dimensions.get('window').height
 const WIDTH = Dimensions.get('window').width
@@ -21,7 +21,7 @@ export default  class Channel extends React.Component{
                 style={{height: 26,width: 26,tintColor: '#fff'}}
             />,
             headerLeft:
-                <TouchableOpacity onPress={()=> navigation.navigate('ChannelGrid')}>
+                <TouchableOpacity onPress={()=> navigation.goBack()}>
                     <Image
                         source={require('../icon/leftArrow.png')}
                         style={{height: 26,width: 26,marginLeft:10,tintColor: '#fff'}}
@@ -39,6 +39,7 @@ export default  class Channel extends React.Component{
             }
         }
     }
+
 
     render(){
         return(
