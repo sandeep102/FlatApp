@@ -6,11 +6,11 @@ import {View,
     TouchableOpacity,
     TouchableWithoutFeedback,
     Dimensions} from 'react-native'
-import renderIf from './renderif'
 import Hr from 'react-native-hr'
 import styles from './Styles'
 import ScrollableTabView, { DefaultTabBar, } from 'react-native-scrollable-tab-view';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Header from '../Header'
 
 
 const WIDTH = Dimensions.get('window').width
@@ -22,9 +22,6 @@ class Comments extends React.Component {
 
         this.state ={
             status:true,
-            buttonPress: true,
-            viewHeight:  0,
-            viewWidth: 0
         }
     }
     find_dimension(event){
@@ -46,12 +43,11 @@ class Comments extends React.Component {
     render(){
         return(
             <View style={{flex:1}}>
-
+                <Header nav={this.props.navigation} />
                 <View style={styles.header}>
                     <Text style={styles.headerText}>23 COMMENTS</Text>
                 </View>
                 <ScrollableTabView
-
                     renderTabBar={()=><DefaultTabBar backgroundColor='#01cca1'  />}
                 >
                     <ScrollView tabLabel='Best' style={{flex:1}}>

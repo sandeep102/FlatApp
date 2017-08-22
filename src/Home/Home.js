@@ -37,7 +37,6 @@ class Home extends React.Component {
             }
         }
     }
-
     constructor() {
         super();
         this.state = {
@@ -177,12 +176,19 @@ const styles = {
         height:12,
         marginRight:5
     }
-}
+};
 
 const HomeNav = StackNavigator({
-    Home:{screen: Home},
-    DetailNews:{screen: DetailNews}
-})
+    Home: {
+        screen: Home,
+    },
+    DetailNews: {
+        screen: DetailNews,
+        navigationOptions: {
+            header: null
+        }
+    }
+});
 
 export default HomeNav
 

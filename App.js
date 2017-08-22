@@ -15,24 +15,27 @@ import Comments from './src/Comments'
 import Timeline from './src/Timeline'
 
 
-import {DrawerNavigator,StackNavigator} from 'react-navigation'
+import {DrawerNavigator,TabNavigator} from 'react-navigation'
 
-const App = DrawerNavigator({
+const App = TabNavigator({
     LOGIN: {screen: Login},
-    HOME: {screen: Home },
-    SETTINGS: {screen: Settings},
-    CALENDER:{screen: Calender},
-    CHANNEL:{screen:ChannelGrid},
-    PROFILE: {screen: Profile},
-    COMMENTS:{screen: Comments},
-    TIMELINE:{screen: Timeline},
-    WIDGETS:{screen: Widget},
-    OVERVIEW: {screen: OverView},
-    FEEDBACK:{screen: Feedback},
+    Drawer: {screen: DrawerNavigator({
+        HOME:{screen: Home},
+        SETTINGS: {screen: Settings},
+        CALENDER:{screen: Calender},
+        CHANNEL:{screen:ChannelGrid},
+        PROFILE: {screen: Profile},
+        COMMENTS:{screen: Comments},
+        TIMELINE:{screen: Timeline},
+        WIDGETS:{screen: Widget},
+        OVERVIEW: {screen: OverView},
+        FEEDBACK:{screen: Feedback},
 
-
+    }) },
 },{
-    initialRouteName: 'HOME',
+    navigationOptions:{
+        tabBarVisible:false
+    }
 })
 
 

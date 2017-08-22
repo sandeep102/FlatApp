@@ -40,7 +40,6 @@ export default  class Channel extends React.Component{
         }
     }
 
-
     render(){
         return(
             <ScrollView style={{flex:1}}>
