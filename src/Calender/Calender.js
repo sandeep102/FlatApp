@@ -8,6 +8,7 @@ import {View,
 import Hr from 'react-native-hr'
 import {StackNavigator} from 'react-navigation'
 import Calendar from 'react-native-calendar'
+import {Icon} from 'react-native-elements'
 
 var dateFormat = require('dateformat');
 var now = new Date();
@@ -20,6 +21,7 @@ class Calender extends React.Component{
                 source={require('../images/logo.png')}
                 style={{height: 26,width: 26,tintColor: '#fff'}}
             />,
+            drawerIcon:  <Icon name="date-range" color="white"  />,
             headerLeft:
                 <TouchableOpacity onPress={()=> navigation.navigate('HOME')}>
                     <Image
@@ -29,10 +31,7 @@ class Calender extends React.Component{
                 </TouchableOpacity>,
             headerRight:
                 <TouchableOpacity onPress={()=> navigation.navigate('DrawerOpen')}>
-                    <Image
-                        source={require('../icon/nav.png')}
-                        style={{height: 32,width: 35,marginRight:10,tintColor: '#fff'}}
-                    />
+                    <Icon name="menu" color="white" size={30} style={{marginRight:10}} />
                 </TouchableOpacity>,
             headerStyle: {
                 backgroundColor: '#00c497'

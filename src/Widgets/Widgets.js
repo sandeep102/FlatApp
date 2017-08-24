@@ -5,7 +5,7 @@ import {View,
     TouchableOpacity,
     Dimensions} from 'react-native'
 import {StackNavigator} from 'react-navigation'
-import {Button} from 'react-native-elements'
+import {Button,Icon} from 'react-native-elements'
 import styles from './Styles'
 
 
@@ -17,6 +17,7 @@ class Widgets extends React.Component{
                 source={require('../images/logo.png')}
                 style={{height: 26,width: 26,tintColor: '#fff'}}
             />,
+            drawerIcon:  <Icon name="widgets" color="white" />,
             headerLeft:
                 <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
                     <Image
@@ -26,10 +27,7 @@ class Widgets extends React.Component{
                 </TouchableOpacity>,
             headerRight:
                 <TouchableOpacity>
-                    <Image
-                        source={require('../icon/plus.png')}
-                        style={{height: 25,width: 25,marginRight:10,tintColor: '#fff'}}
-                    />
+                    <Icon name="add" color="white" size={30} style={{marginRight:10}} />
                 </TouchableOpacity>,
             headerStyle: {
                 backgroundColor: '#00c497'

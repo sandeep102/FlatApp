@@ -10,6 +10,7 @@ import renderIf from './renderif'
 import {StackNavigator} from 'react-navigation'
 import { Col, Row, Grid } from "react-native-easy-grid";
 import Channel from './Channel'
+import {Icon} from 'react-native-elements'
 
 class ChannelGrid extends React.Component {
     static navigationOptions = ({navigation}) =>{
@@ -18,6 +19,7 @@ class ChannelGrid extends React.Component {
                 source={require('../images/logo.png')}
                 style={{height: 26,width: 26,tintColor: '#fff'}}
             />,
+            drawerIcon: <Icon name="apps" color="white" />,
             headerLeft:
                 <TouchableOpacity onPress={()=> navigation.navigate('HOME')}>
                     <Image
@@ -27,10 +29,7 @@ class ChannelGrid extends React.Component {
                 </TouchableOpacity>,
             headerRight:
                 <TouchableOpacity onPress={()=> navigation.navigate('DrawerOpen')}>
-                    <Image
-                        source={require('../icon/nav.png')}
-                        style={{height: 32,width: 35,marginRight:10,tintColor: '#fff'}}
-                    />
+                    <Icon name="menu" color="white" size={30} style={{marginRight:10}} />
                 </TouchableOpacity>,
             headerStyle: {
                 backgroundColor: '#00c497'

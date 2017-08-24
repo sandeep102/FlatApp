@@ -44,7 +44,7 @@ export default class Login extends React.Component{
                             <Button
                                 title="Get Started"
                                 buttonStyle={{borderRadius:20,backgroundColor: '#56bd94'}}
-                                onPress={()=> this.props.navigation.navigate('HOME')}
+                                onPress={()=> this.props.navigation.navigate('NEWS')}
                             />
                         </View>
                         <View style={styles.bottomView}>

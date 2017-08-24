@@ -13,6 +13,7 @@ import Calender from './src/Calender/Calender'
 import Widget from './src/Widgets/Widgets'
 import Comments from './src/Comments'
 import Timeline from './src/Timeline'
+import DrawerComponent from './src/Navigator/DrawerContent'
 
 
 import {DrawerNavigator,TabNavigator} from 'react-navigation'
@@ -20,17 +21,17 @@ import {DrawerNavigator,TabNavigator} from 'react-navigation'
 const App = TabNavigator({
     LOGIN: {screen: Login},
     Drawer: {screen: DrawerNavigator({
-        HOME:{screen: Home},
+        NEWS:{screen: Home},
         SETTINGS: {screen: Settings},
         CALENDER:{screen: Calender},
         CHANNEL:{screen:ChannelGrid},
         PROFILE: {screen: Profile},
-        COMMENTS:{screen: Comments},
         TIMELINE:{screen: Timeline},
         WIDGETS:{screen: Widget},
         OVERVIEW: {screen: OverView},
         FEEDBACK:{screen: Feedback},
-
+    },{
+        contentComponent: DrawerComponent
     }) },
 },{
     navigationOptions:{

@@ -3,6 +3,7 @@ import {View,Image,Text,TouchableOpacity,ScrollView} from 'react-native'
 import styles from './Styles'
 import {StackNavigator} from 'react-navigation'
 import Hr from 'react-native-hr'
+import {Icon} from 'react-native-elements'
 
 class Profile extends React.Component{
     static navigationOptions = ({navigation}) =>{
@@ -11,6 +12,7 @@ class Profile extends React.Component{
                 source={require('../images/logo.png')}
                 style={{height: 26,width: 26,tintColor: '#fff'}}
             />,
+            drawerIcon: <Icon name="person" color="white" />,
             headerLeft:
                 <TouchableOpacity onPress={()=> navigation.navigate('HOME')}>
                     <Image
@@ -20,10 +22,7 @@ class Profile extends React.Component{
                 </TouchableOpacity>,
             headerRight:
                 <TouchableOpacity onPress={()=> navigation.navigate('DrawerOpen')}>
-                    <Image
-                        source={require('../icon/nav.png')}
-                        style={{height: 32,width: 35,marginRight:10,tintColor: '#fff'}}
-                    />
+                    <Icon name="menu" color="white" size={30} style={{marginRight:10}} />
                 </TouchableOpacity>,
             headerStyle: {
                 backgroundColor: '#00c497'

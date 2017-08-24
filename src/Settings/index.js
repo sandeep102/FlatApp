@@ -1,8 +1,9 @@
 import React from 'react'
 import {View,Text,Image,TouchableOpacity,Switch,TextInput,ScrollView} from 'react-native'
-import TextElement from "react-native-elements/src/text/Text";
+import {Icon} from 'react-native-elements'
 import styles from './Styles'
 import {StackNavigator} from 'react-navigation'
+
 
 class Settings extends React.Component{
     static navigationOptions = ({navigation}) =>{
@@ -11,6 +12,7 @@ class Settings extends React.Component{
                 source={require('../images/logo.png')}
                 style={{height: 26,width: 26,tintColor: '#fff'}}
             />,
+            drawerIcon:  <Icon name="settings" color="white"   />,
             headerLeft:
                 <TouchableOpacity onPress={()=> navigation.navigate('HOME')}>
                     <Image
@@ -20,10 +22,7 @@ class Settings extends React.Component{
                 </TouchableOpacity>,
             headerRight:
                 <TouchableOpacity onPress={()=> navigation.navigate('DrawerOpen')}>
-                    <Image
-                        source={require('../icon/nav.png')}
-                        style={{height: 32,width: 35,marginRight:10,tintColor: '#fff'}}
-                    />
+                    <Icon name="menu" color="white" size={30} style={{marginRight:10}} />
                 </TouchableOpacity>,
             headerStyle: {
                 backgroundColor: '#00c497'

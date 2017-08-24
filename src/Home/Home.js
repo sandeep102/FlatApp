@@ -9,6 +9,7 @@ import ImageSlider from 'react-native-image-slider'
 import {StackNavigator} from 'react-navigation'
 import DetailNews from './DetailNews'
 import Hr from 'react-native-hr'
+import {Icon} from 'react-native-elements'
 
 class Home extends React.Component {
 
@@ -18,19 +19,17 @@ class Home extends React.Component {
                 source={require('../images/logo.png')}
                 style={{height: 26,width: 26,tintColor: '#fff'}}
             />,
+            drawerIcon: <Image
+                source={require('../icon/hash.png')}
+                style={{width:28,height:28,tintColor:'#fff'}}
+            />,
             headerLeft:
                 <TouchableOpacity onPress={()=> navigation.navigate('LOGIN')}>
-                <Image
-                    source={require('../icon/power.png')}
-                    style={{height: 26,width: 26,marginLeft:10,tintColor: '#fff'}}
-                />
+                    <Icon name="power-settings-new" color="white" size={30} style={{marginLeft:5}} />
             </TouchableOpacity>,
             headerRight:
                 <TouchableOpacity onPress={()=> navigation.navigate('DrawerOpen')}>
-                <Image
-                    source={require('../icon/nav.png')}
-                    style={{height: 32,width: 35,marginRight:10,tintColor: '#fff'}}
-                />
+                    <Icon name="menu" color="white" size={30} style={{marginRight:10}} />
             </TouchableOpacity>,
             headerStyle: {
                 backgroundColor: '#00c497'
