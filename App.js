@@ -13,6 +13,7 @@ import Calender from './src/Calender/Calender'
 import Widget from './src/Widgets/Widgets'
 import Comments from './src/Comments'
 import Timeline from './src/Timeline'
+import Register from './src/Authentication/Registration'
 import DrawerComponent from './src/Navigator/DrawerContent'
 
 
@@ -20,6 +21,7 @@ import {DrawerNavigator,TabNavigator} from 'react-navigation'
 
 const App = TabNavigator({
     LOGIN: {screen: Login},
+    REGISTER: {screen: Register},
     Drawer: {screen: DrawerNavigator({
         NEWS:{screen: Home},
         SETTINGS: {screen: Settings},
@@ -38,6 +40,5 @@ const App = TabNavigator({
         tabBarVisible:false
     }
 })
-
 
 export default App

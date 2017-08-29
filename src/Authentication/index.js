@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image,View,Dimensions,Text,TextInput} from 'react-native'
+import {Image,View,Dimensions,Text,TextInput,TouchableOpacity} from 'react-native'
 import {Button} from 'react-native-elements'
 import styles from './Styles'
 
@@ -15,7 +15,9 @@ export default class Login extends React.Component{
     render(){
         return(
             <View style={{flex:1}}>
-                <Image source={require('../images/login.jpg')} style={{height: HEIGHT,width: WIDTH,flex:1,opacity: 0.8,position:'absolute'}} />
+                <Image source={require('../images/login.jpg')}
+                       style={{height: HEIGHT,width: WIDTH,flex:1,position:'absolute'}} />
+
                 <View style={{flex:1,justifyContent:'center',alignItems:'center',marginTop:20}}>
                     <Image source={require('../images/logo.png')} style={{tintColor: '#fff'}}  />
                     <Text style={styles.appTitle}>FLAT APP</Text>
@@ -48,7 +50,10 @@ export default class Login extends React.Component{
                             />
                         </View>
                         <View style={styles.bottomView}>
-                            <Text style={{color:'#fff'}}>Create Account</Text>
+                            <TouchableOpacity onPress={()=> this.props.navigation.navigate('REGISTER')}>
+                                <Text style={{color:'#fff'}}>Create Account</Text>
+                            </TouchableOpacity>
+
                             <Text style={{color:'#fff'}}>Need Help?</Text>
                         </View>
                     </View>

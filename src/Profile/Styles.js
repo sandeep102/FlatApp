@@ -1,3 +1,5 @@
+import {Dimensions} from 'react-native'
+const WIDTH = Dimensions.get('window').width
 const styles = {
     cardStyle:{
         flex:3,
@@ -60,6 +62,12 @@ const styles = {
     },
     formGroup:{
         marginTop:30,
+    },
+    profileImg:{
+        marginTop:10,
+        height:WIDTH*0.25 ,
+        width: WIDTH*0.25,
+        borderRadius: WIDTH*0.25/2
     }
 }
 

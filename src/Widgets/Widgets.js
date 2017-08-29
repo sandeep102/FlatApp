@@ -19,7 +19,7 @@ class Widgets extends React.Component{
             />,
             drawerIcon:  <Icon name="widgets" color="white" />,
             headerLeft:
-                <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
+                <TouchableOpacity onPress={()=> navigation.navigate('NEWS')}>
                     <Image
                         source={require('../icon/leftArrow.png')}
                         style={{height: 25,width: 25,marginLeft:10,tintColor: '#fff'}}

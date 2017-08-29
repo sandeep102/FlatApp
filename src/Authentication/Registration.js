@@ -1,5 +1,10 @@
 import React from 'react'
-import {Image,View,Dimensions,Text,TextInput} from 'react-native'
+import {Image,
+    View,
+    Dimensions,
+    Text,
+    TextInput,
+    TouchableOpacity} from 'react-native'
 import {Button} from 'react-native-elements'
 import styles from './Styles'
 
@@ -54,6 +59,10 @@ export default class Login extends React.Component{
                     </View>
                     <View style={styles.bottomView}>
                         <Text style={{color:'#fff'}}>Terms & Conditions</Text>
+                        <TouchableOpacity onPress={()=> this.props.navigation.navigate('LOGIN')}>
+                            <Text style={{color:'#fff'}}>Login</Text>
+                        </TouchableOpacity>
+
                     </View>
                 </View>
             </View>

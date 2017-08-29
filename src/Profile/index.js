@@ -1,9 +1,15 @@
 import React from 'react'
-import {View,Image,Text,TouchableOpacity,ScrollView} from 'react-native'
+import {View,
+    Image,
+    Text,
+    TouchableOpacity,
+    ScrollView,
+    Dimensions} from 'react-native'
 import styles from './Styles'
 import {StackNavigator} from 'react-navigation'
 import Hr from 'react-native-hr'
 import {Icon} from 'react-native-elements'
+
 
 class Profile extends React.Component{
     static navigationOptions = ({navigation}) =>{
@@ -14,7 +20,7 @@ class Profile extends React.Component{
             />,
             drawerIcon: <Icon name="person" color="white" />,
             headerLeft:
-                <TouchableOpacity onPress={()=> navigation.navigate('HOME')}>
+                <TouchableOpacity onPress={()=> navigation.navigate('NEWS')}>
                     <Image
                         source={require('../icon/leftArrow.png')}
                         style={{height: 25,width: 25,marginLeft:10,tintColor: '#fff'}}
@@ -33,7 +39,7 @@ class Profile extends React.Component{
         return(
             <View style={{flex:1,backgroundColor:'#fff'}}>
                 <View style={{justifyContent:'center',alignItems: 'center',backgroundColor:'#01cca1'}}>
-                    <Image source={require('../images/tech.jpg')} style={{marginTop:10,height: 70,width: 70,borderRadius: 35,}}  />
+                    <Image source={require('../images/tech.jpg')} style={styles.profileImg}  />
                     <Text style={styles.usernameStyle}>Kumar Sanket</Text>
                     <Text style={styles.tabTagline}>CEO, GeekyAnts</Text>
                 </View>
