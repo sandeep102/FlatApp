@@ -4,6 +4,7 @@ import {Button} from 'react-native-elements'
 import styles from './Styles'
 import {connect} from 'react-redux'
 import * as actions from '../redux/action'
+import KeyboardAvoidingView from 'react-native-keyboard-avoiding-view';
 
 const WIDTH = Dimensions.get('window').width
 const HEIGHT = Dimensions.get('window').height
@@ -12,6 +13,7 @@ class Login extends React.Component{
     constructor(props) {
         super(props);
     }
+
 
     onEmailChanged = (text) =>{
         this.props.usernameChanged(text)
@@ -30,12 +32,13 @@ class Login extends React.Component{
         }
     }
     Login(){
-        this.props.userLogin(this.props.username,this.props.password)
+        this.props.userLogin(this.props.username,this.props.password,this.props.navigation)
     }
 
     render(){
         return(
             <View style={{flex:1}}>
+
                 <Image source={require('../images/login.jpg')}
                        style={{height: HEIGHT,width: WIDTH,flex:1,position:'absolute'}} />
 
@@ -55,15 +58,16 @@ class Login extends React.Component{
                             />
                         </View>
                         <View style={styles.formControl}>
-                            <TextInput
-                                style={styles.inputStyle}
-                                placeholder="******"
-                                placeholderTextColor="#fff"
-                                onChangeText={(password) => this.props.passwordChanged(password)}
-                                value={this.props.password}
-                                secureTextEntry={true}
-                            />
+                                <TextInput
+                                    style={styles.inputStyle}
+                                    placeholder="******"
+                                    placeholderTextColor="#fff"
+                                    onChangeText={(password) => this.props.passwordChanged(password)}
+                                    value={this.props.password}
+                                    secureTextEntry={true}
+                                />
                         </View>
+
                         <View style={styles.formControl}>
                             <Button
                                 title="Get Started"
@@ -79,16 +83,18 @@ class Login extends React.Component{
                             <Text style={{color:'#fff'}}>Need Help?</Text>
                         </View>
                     </View>
+
             </View>
         )
     }
+
 }
 
 const mapStateToProps = ({ auth }) =>{
 
-    const {username, password, error} = auth
+    const {username, password, error, isLoggedIn} = auth
     return{
-        username, password, error
+        username, password, error, isLoggedIn
     }
 }
 

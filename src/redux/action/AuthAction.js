@@ -18,7 +18,7 @@ export const passwordChanged = (text) =>{
     }
 }
 
-export const userLogin = (username,password) => {
+export const userLogin = (username,password,navigation) => {
 
     return dispatch => {
         axios.post(LOGIN_URL,{
@@ -29,6 +29,7 @@ export const userLogin = (username,password) => {
 
                 if(response.data.length > 0){
                     loginDone(dispatch,response)
+                    navigation.navigate('NEWS')
                 }else{
                     loginFail(dispatch,response)
                 }})
@@ -41,6 +42,7 @@ const loginDone = (dispatch,response) =>{
         type: LOGIN_SUCCESS,
         payload: response.data
     })
+
 }
 
 const loginFail = (dispatch, response) =>{

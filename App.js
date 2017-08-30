@@ -19,6 +19,8 @@ import Timeline from './src/Timeline'
 import Register from './src/Authentication/Registration'
 import DrawerComponent from './src/Navigator/DrawerContent'
 import store from './src/redux/store'
+import {connect} from 'react-redux'
+import {} from ''
 
 import {DrawerNavigator,TabNavigator} from 'react-navigation'
 
@@ -50,7 +52,6 @@ class MainApp extends React.Component{
             <Provider store={store} >
                 <App/>
             </Provider>
-
         )
     }
 

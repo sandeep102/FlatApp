@@ -42,7 +42,6 @@ const DrawerContent = (props) => (
                 />
             </View>
         </View>
-
     </View>
 )
 

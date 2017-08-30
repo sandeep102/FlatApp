@@ -2,7 +2,7 @@ import { USERNAME_CHNAGE,
     PASSWORD_CHANGE,
     LOGIN_SUCCESS,
     LOGIN_FAIL} from '../action/types'
-const INITIAL_STATE = { username: 'dev', password: '123456',error:''}
+const INITIAL_STATE = { username: 'dev', password: '123456',error:'', userData: []}
 
 export default (state = INITIAL_STATE, action) => {
     switch(action.type){
@@ -11,7 +11,7 @@ export default (state = INITIAL_STATE, action) => {
         case PASSWORD_CHANGE:
             return{...state,password: action.payload}
         case LOGIN_SUCCESS:
-            return action.payload || []
+            return {...state,userData: action.payload }
         case LOGIN_FAIL:
             return {...state,INITIAL_STATE,error: action.payload}
         default:
