@@ -2,16 +2,37 @@ import React from 'react'
 import {Image,View,Dimensions,Text,TextInput,TouchableOpacity} from 'react-native'
 import {Button} from 'react-native-elements'
 import styles from './Styles'
-
+import {connect} from 'react-redux'
+import * as actions from '../redux/action'
 
 const WIDTH = Dimensions.get('window').width
 const HEIGHT = Dimensions.get('window').height
 
-export default class Login extends React.Component{
+class Login extends React.Component{
     constructor(props) {
         super(props);
-        this.state = { username: '',password: '' };
     }
+
+    onEmailChanged = (text) =>{
+        this.props.usernameChanged(text)
+    }
+
+    onPasswordChanged = (text) =>{
+        this.props.passwordChanged(text)
+    }
+    renderError(){
+        if(this.props.error){
+            return(
+                <View>
+                    <Text style={{backgroundColor:'transparent',textAlign:'center'}}>{this.props.error}</Text>
+                </View>
+            )
+        }
+    }
+    Login(){
+        this.props.userLogin(this.props.username,this.props.password)
+    }
+
     render(){
         return(
             <View style={{flex:1}}>
@@ -23,13 +44,14 @@ export default class Login extends React.Component{
                     <Text style={styles.appTitle}>FLAT APP</Text>
                 </View>
                 <View style={{flex:1,justifyContent: 'flex-end',marginBottom:15}}>
+                    {this.renderError()}
                         <View style={styles.formControl}>
                             <TextInput
                                 style={styles.inputStyle}
                                 placeholder="Username"
                                 placeholderTextColor="#fff"
-                                onChangeText={(username) => this.setState({username})}
-                                value={this.state.username}
+                                onChangeText={(username) => this.onEmailChanged(username)}
+                                value={this.props.username}
                             />
                         </View>
                         <View style={styles.formControl}>
@@ -37,8 +59,8 @@ export default class Login extends React.Component{
                                 style={styles.inputStyle}
                                 placeholder="******"
                                 placeholderTextColor="#fff"
-                                onChangeText={(password) => this.setState({password})}
-                                value={this.state.password}
+                                onChangeText={(password) => this.props.passwordChanged(password)}
+                                value={this.props.password}
                                 secureTextEntry={true}
                             />
                         </View>
@@ -46,7 +68,7 @@ export default class Login extends React.Component{
                             <Button
                                 title="Get Started"
                                 buttonStyle={{borderRadius:20,backgroundColor: '#56bd94'}}
-                                onPress={()=> this.props.navigation.navigate('NEWS')}
+                                onPress={()=> this.Login()}
                             />
                         </View>
                         <View style={styles.bottomView}>
@@ -61,3 +83,13 @@ export default class Login extends React.Component{
         )
     }
 }
+
+const mapStateToProps = ({ auth }) =>{
+
+    const {username, password, error} = auth
+    return{
+        username, password, error
+    }
+}
+
+export default connect(mapStateToProps,actions)(Login)
