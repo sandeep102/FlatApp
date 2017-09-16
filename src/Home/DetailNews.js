@@ -6,7 +6,8 @@ import {View,
     Text,
     ScrollView} from 'react-native'
 import ImageSlider from 'react-native-image-slider';
-import Header from '../Header'
+import Header from '../comon/Header'
+
 
 const HEIGHT = Dimensions.get('window').height
 
@@ -36,11 +37,16 @@ export default class DetailNews extends React.Component{
             }
         }
     }
+    constructor(props){
+        super(props)
+    }
     render(){
        // console.log(this.props.navigation)
         return(
-            <ScrollView bounces={false} style={{flex:1,backgroundColor:'#fff'}}>
+            <View style={{flex:1}}>
                 <Header nav={this.props.navigation} />
+            <ScrollView  style={{flex:1,backgroundColor:'#fff'}}>
+
                 <Image source={require('../images/bridge.jpeg')}  style={{justifyContent:'flex-end',height:HEIGHT/2,width:null}} >
                         <Text style={{backgroundColor:'transparent',color:'#fff',padding:10,fontWeight:'bold'}}>
                             Conterary to popular belief, Lorem Ipsome is not simply rendom text.
@@ -82,6 +88,7 @@ export default class DetailNews extends React.Component{
                     </TouchableOpacity>
                 </View>
             </ScrollView>
+            </View>
         )
     }
 }

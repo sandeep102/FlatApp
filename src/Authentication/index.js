@@ -1,10 +1,10 @@
 import React from 'react'
-import {Image,View,Dimensions,Text,TextInput,TouchableOpacity} from 'react-native'
+import {Image,View,Dimensions,Text,TextInput,TouchableOpacity,AsyncStorage} from 'react-native'
 import {Button} from 'react-native-elements'
 import styles from './Styles'
 import {connect} from 'react-redux'
-import * as actions from '../redux/action'
-import KeyboardAvoidingView from 'react-native-keyboard-avoiding-view';
+import {usernameChanged,passwordChanged,userLogin} from '../redux/action'
+import * as Animatable from 'react-native-animatable'
 
 const WIDTH = Dimensions.get('window').width
 const HEIGHT = Dimensions.get('window').height
@@ -13,7 +13,15 @@ class Login extends React.Component{
     constructor(props) {
         super(props);
     }
+    componentWillMount(){
 
+        // let value =  AsyncStorage.getItem('uid')
+        // debugger
+        //     if(value !== null){
+        //         this.props.navigation.navigate('NEWS')
+        //     }
+
+    }
 
     onEmailChanged = (text) =>{
         this.props.usernameChanged(text)
@@ -32,21 +40,20 @@ class Login extends React.Component{
         }
     }
     Login(){
-        this.props.userLogin(this.props.username,this.props.password,this.props.navigation)
+        const {username,password,navigation} = this.props
+        this.props.userLogin(username,password,navigation)
     }
 
     render(){
         return(
             <View style={{flex:1}}>
-
                 <Image source={require('../images/login.jpg')}
                        style={{height: HEIGHT,width: WIDTH,flex:1,position:'absolute'}} />
-
                 <View style={{flex:1,justifyContent:'center',alignItems:'center',marginTop:20}}>
                     <Image source={require('../images/logo.png')} style={{tintColor: '#fff'}}  />
                     <Text style={styles.appTitle}>FLAT APP</Text>
                 </View>
-                <View style={{flex:1,justifyContent: 'flex-end',marginBottom:15}}>
+                <Animatable.View animation="bounceInUp" duration={2000} style={{flex:1,justifyContent: 'flex-end',marginBottom:15}}>
                     {this.renderError()}
                         <View style={styles.formControl}>
                             <TextInput
@@ -67,7 +74,6 @@ class Login extends React.Component{
                                     secureTextEntry={true}
                                 />
                         </View>
-
                         <View style={styles.formControl}>
                             <Button
                                 title="Get Started"
@@ -82,20 +88,19 @@ class Login extends React.Component{
 
                             <Text style={{color:'#fff'}}>Need Help?</Text>
                         </View>
-                    </View>
-
+                    </Animatable.View>
             </View>
         )
     }
-
 }
 
 const mapStateToProps = ({ auth }) =>{
 
     const {username, password, error, isLoggedIn} = auth
+
     return{
         username, password, error, isLoggedIn
     }
 }
 
-export default connect(mapStateToProps,actions)(Login)
+export default connect(mapStateToProps,{usernameChanged,passwordChanged,userLogin})(Login)

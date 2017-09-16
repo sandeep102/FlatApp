@@ -10,7 +10,7 @@ import Hr from 'react-native-hr'
 import styles from './Styles'
 import ScrollableTabView, { DefaultTabBar, } from 'react-native-scrollable-tab-view';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Header from '../Header'
+import Header from '../comon/Header'
 
 
 const WIDTH = Dimensions.get('window').width

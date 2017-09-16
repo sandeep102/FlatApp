@@ -5,8 +5,9 @@
  */
 
 import React, { Component } from 'react';
-import { AppRegistry,} from 'react-native';
+import {Text, AppRegistry,} from 'react-native';
 import FlatApp from './App'
 //import emample from './example'
+
 
 AppRegistry.registerComponent('FlatApp', () => FlatApp);

@@ -4,7 +4,7 @@ import {Provider} from 'react-redux'
 import reduxThunk from 'redux-thunk'
 
 import Login from './src/Authentication'
-import Registration from './src/Authentication/Registration'
+
 import Home from './src/Home/Home'
 import Feedback from './src/Feedback'
 import Channel from './src/Channels/Channel'
@@ -16,13 +16,13 @@ import Calender from './src/Calender/Calender'
 import Widget from './src/Widgets/Widgets'
 import Comments from './src/Comments'
 import Timeline from './src/Timeline'
+import DetailNews from './src/Home/DetailNews'
 import Register from './src/Authentication/Registration'
 import DrawerComponent from './src/Navigator/DrawerContent'
 import store from './src/redux/store'
 import {connect} from 'react-redux'
-import {} from ''
 
-import {DrawerNavigator,TabNavigator} from 'react-navigation'
+import {DrawerNavigator,TabNavigator,StackNavigator} from 'react-navigation'
 
 class MainApp extends React.Component{
     render(){
@@ -30,7 +30,17 @@ class MainApp extends React.Component{
             LOGIN: {screen: Login},
             REGISTER: {screen: Register},
             Drawer: {screen: DrawerNavigator({
-                NEWS:{screen: Home},
+                NEWS:{screen: StackNavigator({
+                    Home: {
+                        screen: Home,
+                    },
+                    DetailNews: {
+                        screen: DetailNews,
+                        navigationOptions: {
+                            header: null
+                        }
+                    }
+                })},
                 SETTINGS: {screen: Settings},
                 CALENDER:{screen: Calender},
                 CHANNEL:{screen:ChannelGrid},
