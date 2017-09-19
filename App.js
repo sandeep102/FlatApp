@@ -20,7 +20,8 @@ import DetailNews from './src/Home/DetailNews'
 import Register from './src/Authentication/Registration'
 import DrawerComponent from './src/Navigator/DrawerContent'
 import store from './src/redux/store'
-import {connect} from 'react-redux'
+import lazyLoad from './src/lazyExample'
+import flatList from './src/FlatListExample'
 
 import {DrawerNavigator,TabNavigator,StackNavigator} from 'react-navigation'
 
@@ -49,6 +50,8 @@ class MainApp extends React.Component{
                 WIDGETS:{screen: Widget},
                 OVERVIEW: {screen: OverView},
                 FEEDBACK:{screen: Feedback},
+                LAZYLOAD: {screen: lazyLoad},
+                FLATLIST: {screen: flatList}
             },{
                 contentComponent: DrawerComponent
             }) },

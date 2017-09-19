@@ -2,6 +2,7 @@ import React from 'react'
 import {View,Text,Image,TouchableOpacity,ScrollView} from 'react-native'
 import {StackNavigator} from 'react-navigation'
 import {Icon} from 'react-native-elements'
+
 class Timeline extends React.Component{
     static navigationOptions = ({navigation}) =>{
         return{
@@ -76,6 +77,7 @@ class Timeline extends React.Component{
                         <View style={styles.noteView}>
                             <Text style={styles.note}>printing and typesetting ind Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
                         </View>
+                    <View>
                         <View style={{flexDirection:'row',justifyContent:'flex-start'}}>
                             <Image
                                 source={require('../icon/deliverd.jpg')}
@@ -94,6 +96,8 @@ class Timeline extends React.Component{
                         <View style={styles.noteView}>
                             <Text style={styles.note}>Ind Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
                         </View>
+                    </View>
+                    <View>
                         <View style={{flexDirection:'row',justifyContent:'flex-start'}}>
                             <Image
                                 source={require('../icon/share.png')}
@@ -112,6 +116,8 @@ class Timeline extends React.Component{
                         <View style={styles.noteView}>
                             <Text style={styles.note}>Lorem Ipsum is simply dummy text of the printing and typesetting ind Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
                         </View>
+                    </View>
+                    <View>
                         <View style={{flexDirection:'row',justifyContent:'flex-start'}}>
                             <Image
                                 source={require('../icon/archive.png')}
@@ -130,6 +136,8 @@ class Timeline extends React.Component{
                         <View style={styles.noteView}>
                             <Text style={styles.note}>Lorem Ipsum is simply dummy text of the printing and typesetting ind Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
                         </View>
+                    </View>
+
                 </ScrollView>
             </View>
         )

@@ -34,7 +34,7 @@ class Settings extends React.Component{
 
     render(){
         return(
-            <ScrollView style={{flex:1}}>
+            <ScrollView bounces={false} style={{flex:1}}>
                 <View style={{backgroundColor:'#01cca1'}}>
                     <View>
                         <Text style={styles.UITitle}>Settings</Text>

@@ -4,10 +4,10 @@ import {
     Platform,  StyleSheet
 } from 'react-native';
 
-const width = Dimensions.get('window').width;
+export const width = Dimensions.get('window').width;
 
-const height = Dimensions.get('window').height;
+export const height = Dimensions.get('window').height;
 
-const isIOS = (Platform.OS === 'ios');
+export const isIOS = (Platform.OS === 'ios');
 
-const isAndroid = (Platform.OS === 'android');
+export const isAndroid = (Platform.OS === 'android');

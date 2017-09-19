@@ -14,12 +14,12 @@ class Login extends React.Component{
         super(props);
     }
     componentWillMount(){
-
-        // let value =  AsyncStorage.getItem('uid')
-        // debugger
+        // AsyncStorage.getItem('uid').then((value)=>{
         //     if(value !== null){
-        //         this.props.navigation.navigate('NEWS')
-        //     }
+        //                 this.props.navigation.navigate('NEWS')
+        //             }
+        // })
+
 
     }
 
@@ -96,10 +96,10 @@ class Login extends React.Component{
 
 const mapStateToProps = ({ auth }) =>{
 
-    const {username, password, error, isLoggedIn} = auth
+    const {username, password, error} = auth
 
     return{
-        username, password, error, isLoggedIn
+        username, password, error
     }
 }
 

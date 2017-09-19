@@ -14,7 +14,7 @@ class Overview extends React.Component{
             />,
             drawerIcon: <Icon name="equalizer" color="white" />,
             headerLeft:
-                <TouchableOpacity onPress={()=> navigation.navigate('HOME')}>
+                <TouchableOpacity onPress={()=> navigation.navigate('NEWS')}>
                     <Image
                         source={require('../icon/leftArrow.png')}
                         style={{height: 25,width: 25,marginLeft:10,tintColor: '#fff'}}
@@ -107,8 +107,6 @@ class Overview extends React.Component{
                                 initialProgress={0.02}
                             />
                         </View>
-
-
                     </View>
 
                 </View>

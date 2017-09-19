@@ -9,7 +9,18 @@ import styles from './Styles'
 import {StackNavigator} from 'react-navigation'
 import Hr from 'react-native-hr'
 import {Icon} from 'react-native-elements'
+var ImagePicker = require('react-native-image-picker');
 
+var options = {
+    title: 'Select Avatar',
+    customButtons: [
+        {name: 'fb', title: 'Choose Photo from Facebook'},
+    ],
+    storageOptions: {
+        skipBackup: true,
+        path: 'images'
+    }
+};
 
 class Profile extends React.Component{
     static navigationOptions = ({navigation}) =>{
@@ -35,11 +46,41 @@ class Profile extends React.Component{
             }
         }
     }
+    state = {avatarSource: ''}
+    // show image picker
+    showPicker(){
+        ImagePicker.showImagePicker(options, (response) => {
+            console.log('Response = ', response);
+
+            if (response.didCancel) {
+                console.log('User cancelled image picker');
+            }
+            else if (response.error) {
+                console.log('ImagePicker Error: ', response.error);
+            }
+            else if (response.customButton) {
+                console.log('User tapped custom button: ', response.customButton);
+            }
+            else {
+                let source = { uri: response.uri };
+
+                // You can also display the image using data:
+                // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+                this.setState({
+                    avatarSource: source
+                });
+            }
+        });
+    }
     render(){
         return(
             <View style={{flex:1,backgroundColor:'#fff'}}>
                 <View style={{justifyContent:'center',alignItems: 'center',backgroundColor:'#01cca1'}}>
-                    <Image source={require('../images/tech.jpg')} style={styles.profileImg}  />
+                    <TouchableOpacity onPress={()=> this.showPicker()}>
+                        <Image source={this.state.avatarSource || require('../images/tech.jpg')} style={styles.profileImg}  />
+                    </TouchableOpacity>
+
                     <Text style={styles.usernameStyle}>Kumar Sanket</Text>
                     <Text style={styles.tabTagline}>CEO, GeekyAnts</Text>
                 </View>

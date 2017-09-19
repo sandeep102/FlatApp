@@ -6,12 +6,15 @@ import {View,
     Text,
     ScrollView} from 'react-native'
 import ImageSlider from 'react-native-image-slider';
+import {Icon} from 'react-native-elements'
 import Header from '../comon/Header'
+import {connect} from 'react-redux'
+import {selectedNews} from '../redux/action'
+import {news} from "../../services/apiConstant";
+import * as Constant from '../Helpers/constant'
 
 
-const HEIGHT = Dimensions.get('window').height
-
-export default class DetailNews extends React.Component{
+class DetailNews extends React.Component{
     static navigationOptions = ({navigation}) =>{
         return{
             title: <Image
@@ -39,17 +42,17 @@ export default class DetailNews extends React.Component{
     }
     constructor(props){
         super(props)
+
     }
     render(){
-       // console.log(this.props.navigation)
         return(
             <View style={{flex:1}}>
                 <Header nav={this.props.navigation} />
-            <ScrollView  style={{flex:1,backgroundColor:'#fff'}}>
+            <ScrollView bounces={false}  style={{flex:1,backgroundColor:'#fff'}}>
 
-                <Image source={require('../images/bridge.jpeg')}  style={{justifyContent:'flex-end',height:HEIGHT/2,width:null}} >
+                <Image source={require('../images/bridge.jpeg')}  style={{justifyContent:'flex-end',height:Constant.height/2,width:null}} >
                         <Text style={{backgroundColor:'transparent',color:'#fff',padding:10,fontWeight:'bold'}}>
-                            Conterary to popular belief, Lorem Ipsome is not simply rendom text.
+                            {this.props.data.title}
                         </Text>
                 </Image>
                 <View style={{flexDirection:'row',justifyContent:'space-between',padding:15}}>
@@ -62,7 +65,7 @@ export default class DetailNews extends React.Component{
                     </View>
                     <View>
                         <TouchableOpacity>
-                            <Text style={styles.p}>ENVIRONMENT</Text>
+                            <Text style={styles.p}>{this.props.data.category}</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -74,7 +77,7 @@ export default class DetailNews extends React.Component{
                 <Text style={styles.desc}>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. </Text>
 
                 <ImageSlider
-                    height={HEIGHT/3.5}
+                    height={Constant.height/3.5}
                     images={[
                     require('../images/flower.jpg'),
                     require('../images/tech.jpg'),
@@ -83,11 +86,13 @@ export default class DetailNews extends React.Component{
                 <View style={styles.next}>
                     <TouchableOpacity>
                         <Text style={{color:'#41d8b7'}}>Next Story<Image source={require('../icon/rightArrow.png')}
-                                               style={{height:12,width:12,tintColor:'#41d8b7'}} />  </Text>
-
+                              style={{height:12,width:12,tintColor:'#41d8b7'}} />  </Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
+                <View style={styles.shareButton} >
+                    <Icon size={30} name="share" color="white" />
+                </View>
             </View>
         )
     }
@@ -120,5 +125,21 @@ const styles = {
         padding:5,
         justifyContent:'center',
         alignItems: 'center'
+    },
+    shareButton:{
+        marginTop:Constant.height-70,
+        marginLeft: Constant.width-70,
+        height:50,
+        width:50,
+        borderRadius:25,
+        justifyContent:'center',
+        backgroundColor:'#00c497',
+        position:'absolute'
     }
 }
+mapStateToProps = ({ news }) =>{
+    return{
+        data: news.selected
+    }
+}
+export default connect(mapStateToProps,{selectedNews})(DetailNews)

@@ -62,7 +62,7 @@ export const userLogin = (username,password,navigation) => {
             .then((response) => {
                 if(response.data.length > 0){
                     loginDone(dispatch,response)
-
+                  //  AsyncStorage.setItem('uid',response.data._id,(res)=> {})
                     navigation.navigate('NEWS')
                 }else{
                     loginFail(dispatch,response)

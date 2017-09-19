@@ -52,7 +52,7 @@ class Home extends React.Component {
         this.renderList(nextProps)
     }
     renderDetail(item){
-
+        this.props.selectedNews(item)
         // navigate
         this.props.navigation.navigate('DetailNews')
     }
@@ -85,7 +85,6 @@ class Home extends React.Component {
                         </TouchableOpacity>
                         <Hr lineColor="#ccc" />
                     </View>
-
                 )
             })
         }
